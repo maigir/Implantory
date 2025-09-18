@@ -14,6 +14,7 @@ try {
     console.error('Unable to connect to the database:', error);
 }
 
+
 app.get('/', (req, res) => {
     res.status(200).send('API is running');
 })

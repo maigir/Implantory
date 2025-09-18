@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import sequelize from './config/db.js';
+import cors from 'cors';
 
 dotenv.config({quiet: true});
 

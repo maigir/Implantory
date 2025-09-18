@@ -8,13 +8,14 @@ dotenv.config({quiet: true});
 const app = express();
 app.use(express.json());
 
+app.use(cors({ origin: 'http://localhost:5173'})); 
+
 try {
     await sequelize.authenticate();
     console.log('Database successfully connected!')
 } catch (error) {
     console.error('Unable to connect to the database:', error);
 }
-
 
 app.get('/', (req, res) => {
     res.status(200).send('API is running');

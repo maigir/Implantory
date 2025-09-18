@@ -1,17 +1,17 @@
 import { DataTypes } from "sequelize"; 
 import sequelize from "../config/db.js";
 
-const ImplantItem = sequelize.define('Implant', {
+const ImplantItem = sequelize.define('ImplantItem', {
     implantName: {
-        type: DataTypes.STRING, //BLX, BLC, BLT
+        type: DataTypes.STRING,
         allowNull: false,
     },
     diameter: {
-        type: DataTypes.FLOAT, //3.5, 3.75, 4.0 jne.
+        type: DataTypes.DECIMAL(3, 2), 
         allowNull: false,
     },
     length: {
-        type: DataTypes.INTEGER, //8, 10, 12, 14 jne.
+        type: DataTypes.INTEGER, 
         allowNull: false,
     },
     REF: {
@@ -27,15 +27,15 @@ const ImplantItem = sequelize.define('Implant', {
         defaultValue: 'new',
         allowNull: false,
     },
-    addedAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    },
     usedAt: {
         type: DataTypes.DATE,
         allowNull: true,
-    }
+    },
+},
+{
+    freezeTableName: true, 
+    createdAt: 'addedAt',
+    updatedAt: 'usedAt',
+});
 
-})
-
-export default Implant;
+export default ImplantItem;

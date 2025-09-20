@@ -21,9 +21,17 @@ const createImplant = async (req, res) => {
     }
 }
 
-const getAllImplants = async (req, res) => {
+const getAllNewImplants = async (req, res) => {
     try {
-        const allImplants = await implant.findAll();
+        const allImplants = await implant.findAll({
+            where: {status: 'new'}
+        });
+        if(!allImplants) {
+            return res.status(404).json({
+                status: 'Error!',
+                message: "No implants found!"
+            })
+        }
 
         res.status(200).json({
             status: 'Success!',
@@ -38,5 +46,9 @@ const getAllImplants = async (req, res) => {
     }
 }
 
-export default {createImplant, getAllImplants};
+const updateImplant = async (req, res) => {
+    
+}
+
+export default {createImplant, getAllNewImplants};
 

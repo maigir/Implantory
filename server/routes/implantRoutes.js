@@ -5,7 +5,10 @@ const router = express.Router();
 
 router
     .route('/')
-    .get(implantController.getAllImplants)
     .post(implantController.createImplant);
+
+router
+    .route('/new')
+    .get(implantController.getAllNewImplants)
 
 export default router;

@@ -29,6 +29,7 @@ try {
 }
 
 app.use('/api/implants', implantRouter);
+app.use('api/implants/new', implantRouter);
 
 app.get('/', (req, res) => {
     res.status(200).send('API is running');

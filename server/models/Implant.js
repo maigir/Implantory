@@ -57,7 +57,8 @@ const ImplantItem = sequelize.define('ImplantItem', {
 
 });
 
-//If status changes from 'new' => 'used
+// If status changes from 'new' => 'used' 
+// hook
 ImplantItem.beforeUpdate(item => {
     if(item.changed('status') && item.status === 'used' && !item.usedAt)
         item.usedAt = new Date();

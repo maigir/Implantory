@@ -1,11 +1,11 @@
 import express from 'express';
-import implantItemController from '../controllers/ImplantItemController.js';
+import implantController from '../controllers/implantController.js';
 
 const router = express.Router();
 
 router
     .route('/')
-    .get(implantItemController.getAllImplants, implantItemController.getOneImplant)
-    .post(implantItemController.createImplant);
+    .get(implantController.getAllImplants)
+    .post(implantController.createImplant);
 
 export default router;

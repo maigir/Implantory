@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import sequelize from './config/db.js';
 import cors from 'cors';
 import morgan from 'morgan';
-// import implantRouter from './routes/implantRoutes.js';
+import implantRouter from './routes/implantRoutes.js';
 
 dotenv.config({quiet: true});
 
@@ -28,7 +28,7 @@ try {
     console.error('Error synchronizing models:', error);
 }
 
-// app.use('/api/implants', implantRouter);
+app.use('/api/implants', implantRouter);
 
 app.get('/', (req, res) => {
     res.status(200).send('API is running');

@@ -1,4 +1,5 @@
 import { DataTypes } from "sequelize"; 
+import dayjs from 'dayjs';
 import sequelize from "../config/db.js";
 
 const ImplantItem = sequelize.define('ImplantItem', {
@@ -26,21 +27,40 @@ const ImplantItem = sequelize.define('ImplantItem', {
         type: DataTypes.ENUM('new', 'used'),
         defaultValue: 'new',
         allowNull: false,
+
+
     },
     addedAt: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
+        
+        get() { 
+            const date = this.getDataValue("addedAt");
+            return date ? dayjs(date).format("YYYY-MM-DD") : null;
+        }
     },
     usedAt: {
         type: DataTypes.DATE,
         allowNull: true,
         defaultValue: null,
+
+        get() { 
+            const date = this.getDataValue("addedAt");
+            return date ? dayjs(date).format("YYYY-MM-DD") : null;
+        }
     },
 },
 {
     freezeTableName: true, 
     timestamps: false,
+
 });
+
+//If status changes from 'new' => 'used
+ImplantItem.beforeUpdate(item => {
+    if(item.changed('status') && item.status === 'used' && !item.usedAt)
+        item.usedAt = new Date();
+})
 
 export default ImplantItem;

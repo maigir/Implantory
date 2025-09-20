@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import sequelize from './config/db.js';
 import cors from 'cors';
-import ImplantItem from './models/Implant.js';
+import morgan from 'morgan';
+// import implantRouter from './routes/implantRoutes.js';
 
 dotenv.config({quiet: true});
 
@@ -10,6 +11,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({ origin: 'http://localhost:5173'})); 
+
+app.use(morgan('dev'));
 
 try {
     await sequelize.authenticate();
@@ -19,11 +22,13 @@ try {
 }
 
 try {
-    await sequelize.sync({alter: true});
+    await sequelize.sync({ alter: true });
     console.log('All models were synchronized successfully.');
 } catch (error) {
     console.error('Error synchronizing models:', error);
 }
+
+// app.use('/api/implants', implantRouter);
 
 app.get('/', (req, res) => {
     res.status(200).send('API is running');

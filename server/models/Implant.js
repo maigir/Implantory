@@ -27,15 +27,20 @@ const ImplantItem = sequelize.define('ImplantItem', {
         defaultValue: 'new',
         allowNull: false,
     },
+    addedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+    },
     usedAt: {
         type: DataTypes.DATE,
         allowNull: true,
+        defaultValue: null,
     },
 },
 {
     freezeTableName: true, 
-    createdAt: 'addedAt',
-    updatedAt: 'usedAt',
+    timestamps: false,
 });
 
 export default ImplantItem;

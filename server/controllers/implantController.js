@@ -10,8 +10,9 @@ const createImplant = async (req, res) => {
         LOT: req.body.LOT,
     });
     res.status(200).json({
-            status: 'New implant successfully added!',
-            message: newImplant,
+            status: 'Success!',
+            message: 'New implant successfully added!',
+            data: newImplant,
         });
     } catch (err) {
         res.status(500).json({
@@ -46,9 +47,34 @@ const getAllNewImplants = async (req, res) => {
     }
 }
 
+// .save() triggers hook
 const updateImplant = async (req, res) => {
-    
+    try {
+        const { id } = req.params;
+        const implantItem = await implantItem.findByPk(id);
+
+        if(!implantItem) {
+            return res.status(404).json({
+                status: 'Error!',
+                message: 'Implant not found',
+            });
+        }
+
+        Object.assign(implantItem, req.body);
+        await implantItem.save() // triggers beforeUpdate hook
+
+        res.status(200).json({
+            status: 'Success!',
+            message: "Implant successfully updated!",
+            data: implantItem
+        })
+    } catch(err){
+        res.status(500).json({
+            status: 'Error!',
+            message: err.message
+        })
+    }
 }
 
-export default {createImplant, getAllNewImplants};
+export default {createImplant, getAllNewImplants, updateImplant};
 

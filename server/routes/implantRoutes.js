@@ -11,4 +11,8 @@ router
     .route('/new')
     .get(implantController.getAllNewImplants)
 
+router
+    .route('/:id')
+    .patch(implantController.updateImplant)
+
 export default router;

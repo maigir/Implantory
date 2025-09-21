@@ -51,7 +51,7 @@ const getAllNewImplants = async (req, res) => {
 const updateImplant = async (req, res) => {
     try {
         const { id } = req.params;
-        const implantItem = await implantItem.findByPk(id);
+        const implantItem = await implant.findByPk(id);
 
         if(!implantItem) {
             return res.status(404).json({
@@ -76,5 +76,32 @@ const updateImplant = async (req, res) => {
     }
 }
 
-export default {createImplant, getAllNewImplants, updateImplant};
+const deleteImplant = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const implantItem = await implant.findByPk(id);
+
+        if(!implantItem)  {
+            return res.status(404).json({
+                status: 'Error!',
+                message: 'Implant not found!'
+            });
+        }
+
+        await implantItem.destroy();
+
+        res.status(200).json({
+            status: 'Success!',
+            message: `Implant with ID ${id} deleted!`
+        })
+    } catch(err){
+        res.status(500).json({
+            status: 'Error!',
+            message: err.message
+        })
+    }
+    
+}
+
+export default {createImplant, getAllNewImplants, updateImplant, deleteImplant};
 

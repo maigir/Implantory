@@ -14,5 +14,6 @@ router
 router
     .route('/:id')
     .patch(implantController.updateImplant)
+    .delete(implantController.deleteImplant)
 
 export default router;

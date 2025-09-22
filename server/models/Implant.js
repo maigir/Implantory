@@ -46,7 +46,7 @@ const ImplantItem = sequelize.define('ImplantItem', {
         defaultValue: null,
 
         get() { 
-            const date = this.getDataValue("addedAt");
+            const date = this.getDataValue("usedAt");
             return date ? dayjs(date).format("YYYY-MM-DD") : null;
         }
     },

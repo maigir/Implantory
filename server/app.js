@@ -30,6 +30,13 @@ try {
 
 app.use('/api/implants', implantRouter);
 
+app.use((req, res) => {
+    res.status(404).json({
+        status: 'fail',
+        message: `Can't find ${req.originalUrl} on this server!`
+    });
+});
+
 app.get('/', (req, res) => {
     res.status(200).send('API is running');
 })

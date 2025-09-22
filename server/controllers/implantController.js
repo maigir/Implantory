@@ -16,7 +16,7 @@ const createImplant = async (req, res) => {
         });
     } catch (err) {
         res.status(500).json({
-            status: 'Error!',
+            status: 'fail',
             message: err.message
         })
     }
@@ -24,24 +24,43 @@ const createImplant = async (req, res) => {
 
 const getAllNewImplants = async (req, res) => {
     try {
-        const allImplants = await implant.findAll({
+        const newImplants = await implant.findAll({
             where: {status: 'new'}
         });
-        if(!allImplants) {
+        if(!newImplants) {
             return res.status(404).json({
-                status: 'Error!',
+                status: 'fail',
                 message: "No implants found!"
             })
         }
 
         res.status(200).json({
             status: 'Success!',
-            products: allImplants.length,
-            message: allImplants
+            products: newImplants.length,
+            message: newImplants
         })
     } catch (err) {
         res.status(500).json({
-            status: 'Error!',
+            status: 'fail',
+            message: err.message
+        })
+    }
+}
+
+const getAllUsedImplants = async (req, res) => {
+    try {
+        const usedImplants = await implant.findAll({
+            where: {status: 'used'}
+        })
+        res.status(200).json({
+            status: 'Success!',
+            products: usedImplants.length,
+            message: usedImplants
+            });
+    } catch(err) {
+        res.status(404).json({
+            status: 'fail',
+
             message: err.message
         })
     }
@@ -55,8 +74,8 @@ const updateImplant = async (req, res) => {
 
         if(!implantItem) {
             return res.status(404).json({
-                status: 'Error!',
-                message: 'Implant not found',
+                status: 'fail',
+                message: `Implant with ID ${id} not found`,
             });
         }
 
@@ -70,7 +89,7 @@ const updateImplant = async (req, res) => {
         })
     } catch(err){
         res.status(500).json({
-            status: 'Error!',
+            status: 'fail',
             message: err.message
         })
     }
@@ -83,7 +102,7 @@ const deleteImplant = async (req, res) => {
 
         if(!implantItem)  {
             return res.status(404).json({
-                status: 'Error!',
+                status: 'fail',
                 message: 'Implant not found!'
             });
         }
@@ -96,12 +115,12 @@ const deleteImplant = async (req, res) => {
         })
     } catch(err){
         res.status(500).json({
-            status: 'Error!',
+            status: 'fail',
             message: err.message
         })
     }
     
 }
 
-export default {createImplant, getAllNewImplants, updateImplant, deleteImplant};
+export default {createImplant, getAllNewImplants, updateImplant, deleteImplant, getAllUsedImplants};
 

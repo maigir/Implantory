@@ -1,0 +1,492 @@
+[
+    {
+        "code": "43275",
+        "implantName": "BLX",
+        "diameter": "3.5",
+        "length": "8",
+        "REF": "061.3308"
+    },
+    {
+        "code": "43282",
+        "implantName": "BLX",
+        "diameter": "3.5",
+        "length": "10",
+        "REF": "061.3310"
+    },
+    {
+        "code": "43299",
+        "implantName": "BLX",
+        "diameter": "3.5",
+        "length": "12",
+        "REF": "061.3312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.5",
+        "length": "14",
+        "REF": "061.3314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.5",
+        "length": "16",
+        "REF": "061.3316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "6",
+        "REF": "061.4306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "8",
+        "REF": "061.4308"
+    },
+    {
+        "code": "36505",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "10",
+        "REF": "061.4310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "12",
+        "REF": "061.4312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "14",
+        "REF": "061.4314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "3.75",
+        "length": "16",
+        "REF": "061.4316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "6",
+        "REF": "061.5306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "8",
+        "REF": "061.5308"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "10",
+        "REF": "061.5310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "12",
+        "REF": "061.5312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "14",
+        "REF": "061.5314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.0",
+        "length": "16",
+        "REF": "061.5316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "6",
+        "REF": "061.6306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "8",
+        "REF": "061.6308"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "10",
+        "REF": "061.6310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "12",
+        "REF": "061.6312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "14",
+        "REF": "061.6314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "4.5",
+        "length": "16",
+        "REF": "061.6316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "6",
+        "REF": "061.7306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "8",
+        "REF": "061.7308"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "10",
+        "REF": "061.7310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "12",
+        "REF": "061.7312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "14",
+        "REF": "061.7314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.0",
+        "length": "16",
+        "REF": "061.7316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "6",
+        "REF": "061.8306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "8",
+        "REF": "061.8308"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "10",
+        "REF": "061.8310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "12",
+        "REF": "061.8312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "14",
+        "REF": "061.8314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "5.5",
+        "length": "16",
+        "REF": "061.8316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "6",
+        "REF": "061.9306"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "8",
+        "REF": "061.9308"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "10",
+        "REF": "061.9310"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "12",
+        "REF": "061.9312"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "14",
+        "REF": "061.9314"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLX",
+        "diameter": "6.5",
+        "length": "16",
+        "REF": "061.9316"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.3",
+        "length": "8",
+        "REF": "035.9008S"
+    },
+    {
+        "code": "64157",
+        "implantName": "BLC",
+        "diameter": "3.3",
+        "length": "10",
+        "REF": "035.9010S"
+    },
+    {
+        "code": "64164",
+        "implantName": "BLC",
+        "diameter": "3.3",
+        "length": "12",
+        "REF": "035.9012S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.3",
+        "length": "14",
+        "REF": "035.9014S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.3",
+        "length": "16",
+        "REF": "035.9016S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "6",
+        "REF": "035.9206S"
+    },
+    {
+        "code": "64287",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "8",
+        "REF": "035.9208S"
+    },
+    {
+        "code": "64294",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "10",
+        "REF": "035.9210S"
+    },
+    {
+        "code": "64300",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "12",
+        "REF": "035.9212S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "14",
+        "REF": "035.9214S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "3.75",
+        "length": "16",
+        "REF": "035.9216S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "6",
+        "REF": "035.9406S"
+    },
+    {
+        "code": "64423",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "8",
+        "REF": "035.9408S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "10",
+        "REF": "035.9410S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "12",
+        "REF": "035.9412S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "14",
+        "REF": "035.9414S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "4.5",
+        "length": "16",
+        "REF": "035.9416S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "6",
+        "REF": "035.9706S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "8",
+        "REF": "035.9708S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "10",
+        "REF": "035.9710S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "12",
+        "REF": "035.9712S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "14",
+        "REF": "035.9714S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "5.5",
+        "length": "16",
+        "REF": "035.9716S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "6",
+        "REF": "035.9806S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "8",
+        "REF": "035.9808S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "10",
+        "REF": "035.9810S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "12",
+        "REF": "035.9812S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "14",
+        "REF": "035.9814S"
+    },
+    {
+        "code": "lisada",
+        "implantName": "BLC",
+        "diameter": "6.5",
+        "length": "16",
+        "REF": "035.9816S"
+    }
+]

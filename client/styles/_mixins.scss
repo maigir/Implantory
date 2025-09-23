@@ -1,0 +1,18 @@
+
+//mobile-first (<= 480px)
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+//Desktop layout ( >= 769px )
+@mixin desktop {
+    @media (min-width: 769px) {
+        @content;
+    }
+}
+
+
+
+

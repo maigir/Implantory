@@ -30,7 +30,7 @@ const getAllNewImplants = async (req, res) => {
         if(!newImplants) {
             return res.status(404).json({
                 status: 'fail',
-                message: "No implants found!"
+                message: "No implants with status 'new' found!"
             })
         }
 
@@ -52,6 +52,13 @@ const getAllUsedImplants = async (req, res) => {
         const usedImplants = await implant.findAll({
             where: {status: 'used'}
         })
+
+        if(!usedImplants) {
+            return res.status(404).json({
+                status: 'fail',
+                message: `No implants with status 'used' found!`
+            })
+        }
         res.status(200).json({
             status: 'Success!',
             products: usedImplants.length,
@@ -103,7 +110,7 @@ const deleteImplant = async (req, res) => {
         if(!implantItem)  {
             return res.status(404).json({
                 status: 'fail',
-                message: 'Implant not found!'
+                message: `Implant with ID ${id} not found!`
             });
         }
 

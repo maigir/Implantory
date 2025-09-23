@@ -1,9 +1,7 @@
+
+
 function App() {
-  return (
-    <div>
-      <h1>Hello, React + Vite!</h1>
-    </div>
-  );
+  return <h1>Hello React!</h1>;
 }
 
 export default App;

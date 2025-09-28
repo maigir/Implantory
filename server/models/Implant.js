@@ -7,6 +7,10 @@ const ImplantItem = sequelize.define('ImplantItem', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    code: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     diameter: {
         type: DataTypes.DECIMAL(3, 2), 
         allowNull: false,
@@ -27,8 +31,6 @@ const ImplantItem = sequelize.define('ImplantItem', {
         type: DataTypes.ENUM('new', 'used'),
         defaultValue: 'new',
         allowNull: false,
-
-
     },
     addedAt: {
         type: DataTypes.DATE,

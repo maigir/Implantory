@@ -2,35 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Implantory</title>
   </head>
   <body>
     <div id="root"></div>
-    
-    <!-- <input type="text" id="qrInput" placeholder="Enter or scan code...">
-    <button id="scanButton">Scan</button>
-    <p id="implantData" style="margin-top:15px"></p>
-
-    <script>
-      const implantData = document.getElementById('implantData');
-      const scanButton = document.getElementById('scanButton');
-      const qrInput = document.getElementById('qrInput');
-
-      scanButton.addEventListener('click', async () => {
-        const code = qrInput.value.trim();
-        if (!code) return alert('Enter code!');
-
-        try {
-          const result = await fetch('http://localhost:3000/implant/code/:code');
-          const data = await result.json();
-          implantData.innerHTML = `<pre>${JSON.stringify(data, 2)}</pre>`;
-        } catch (err) {
-          implantData.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
-        }
-      })
-    </script> -->
 
     <script type="module" src="/src/main.jsx"></script>
   </body>

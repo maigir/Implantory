@@ -8,6 +8,7 @@ const createImplant = async (req, res) => {
         length: req.body.length,
         REF: req.body.REF,
         LOT: req.body.LOT,
+        code: req.body.code
     });
     res.status(200).json({
             status: 'Success!',

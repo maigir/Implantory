@@ -18,30 +18,31 @@ function Login() {
         e.preventDefault();
 
         if(username === 'admin' && password === '7734') {
+            localStorage.setItem('isLoggedIn', 'true');
             navigate('/dashboard');
         } else {
-            alert('Invalid credentials')
+            alert('Invalid credentials');
         }
     };
 
     return (
         <Container
-            maxWidth="sm"
+            maxWidth='sm'
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #6B73FF, #000DFF)',
+                background: '#f5f5f5',
             }}
         >
         <Paper
-            elevation={10}
+            elevation={3}
             sx={{
                 p: 4,
                 width: '100%',
-                borderRadius: 3,
-                backdropFilter: 'blur(10px)',
+                borderRadius: 2,
+                backgroundColor: '#fff',
             }}
         >
         <Box
@@ -53,7 +54,7 @@ function Login() {
                 gap: 2,
             }}
         >
-        <Typography variant="h4" component="h1" textAlign="center" color="#000DFF">
+        <Typography variant="h5" component="h1" textAlign="center" color="#333">
             Login
         </Typography>
 
@@ -80,11 +81,12 @@ function Login() {
             type="submit"
             variant="contained"
             sx={{
-                mt: 2,
+                mt: 1,
                 py: 1.5,
-                background: '#6B73FF',
+                background: '#90caf9',
+                color: '#333',
                 '&:hover': {
-                    background: '#000DFF',
+                    background: '#64b5f6',
                 },
             }}
             fullWidth

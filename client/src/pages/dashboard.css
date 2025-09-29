@@ -29,15 +29,16 @@ body {
 .dashboard__search input {
   padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 9999px;
+  border-radius: 50px;
   width: 220px;
   max-width: 100%;
+
   transition: border 0.2s ease;
 }
 
 .dashboard__search input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #505860;
 }
 
 /* Logout button */
@@ -45,10 +46,10 @@ body {
   background: #dc3545;
   border: none;
   color: #fff;
-  font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+
   transition: background 0.2s ease;
 }
 
@@ -70,7 +71,7 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-weight: 500;
+
   transition: background 0.2s ease;
 }
 
@@ -79,7 +80,7 @@ body {
 }
 
 .dashboard__tab--active {
-  border-bottom: 3px solid #007bff;
+  border-bottom: 3px solid #505860;
   background: #fff;
 }
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import AccordionCard from '../components/AccordionCard';
+import ScanButton from '../components/ScanButton';
+// import ImplantCard from '../components/ImplantCard';
 import "./dashboard.css";
 
 function Dashboard() {
@@ -33,7 +35,6 @@ function Dashboard() {
         </button>
       </header>
 
-      {/* Tabs */}
       <nav className="dashboard__tabs">
         <button
           className={`dashboard__tab ${
@@ -53,22 +54,40 @@ function Dashboard() {
         </button>
       </nav>
 
-      {/* Content */}
       <main className="dashboard__content">
         {activeTab === "new" ? (
           <>
-            <AccordionCard />
-            <AccordionCard />
-            <AccordionCard />
+            <AccordionCard 
+              title="BLX"
+              type="new"
+            />
+            <AccordionCard 
+              title="BLC"
+              type="new"
+            />
+            <AccordionCard 
+              title="BLT"
+              type="new"
+            />
           </>
         ) : (
           <>
-            <AccordionCard />
-            <AccordionCard />
-            <AccordionCard />
+            <AccordionCard 
+              title="BLX"
+              type="used"
+            />
+            <AccordionCard 
+              title="BLC"
+              type="used"
+            />
+            <AccordionCard 
+              title="BLT"
+              type="used"
+            />
           </>
         )}
       </main>
+      <ScanButton />
     </div>
   );
 }

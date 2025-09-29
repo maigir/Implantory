@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import axios from 'axios';
 import './implantCard.css';
 
 function ImplantCard({ implant }) {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import AccordionCard from '../components/AccordionCard';
 import "./dashboard.css";
 
 function Dashboard() {
@@ -12,9 +13,10 @@ function Dashboard() {
     navigate('/login');
   }
 
+  // TODO: search logic 
+
   return (
     <div className="dashboard">
-      {/* Top Bar */}
       <header className="dashboard__header">
         <div className="dashboard__search">
           <input
@@ -54,15 +56,17 @@ function Dashboard() {
       {/* Content */}
       <main className="dashboard__content">
         {activeTab === "new" ? (
-          <div className="dashboard__panel">
-            <h2>New Implants</h2>
-            <p>Here you’ll see the list of new implants.</p>
-          </div>
+          <>
+            <AccordionCard />
+            <AccordionCard />
+            <AccordionCard />
+          </>
         ) : (
-          <div className="dashboard__panel">
-            <h2>Used Implants</h2>
-            <p>Here you’ll see the list of used implants.</p>
-          </div>
+          <>
+            <AccordionCard />
+            <AccordionCard />
+            <AccordionCard />
+          </>
         )}
       </main>
     </div>

@@ -15,7 +15,7 @@ function ScanButton() {
       className="sticky-scan-button"
     >
       <LuScan 
-        size={24}
+        size={35}
         color="#fff"
       />
     </button>

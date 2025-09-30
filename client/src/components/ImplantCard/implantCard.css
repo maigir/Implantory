@@ -1,0 +1,29 @@
+.implantCard,
+.implantCard td {
+  background-color: #ccc;
+}
+
+.implantCard {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.implantCard td {
+  text-align: center;
+  border: none;
+  padding: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .implantCard {
+    height: 40px;
+  }
+    
+  .implantCard td {
+    font-size: 10px;
+  }
+}

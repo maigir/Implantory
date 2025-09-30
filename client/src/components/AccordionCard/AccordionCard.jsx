@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { SlArrowDown, SlArrowUp} from "react-icons/sl";
 import { LuDiameter } from "react-icons/lu";
-import ImplantCard from './ImplantCard';
 import './accordionCard.css';
 
 function AccordionCard({ type, title, children }) {

@@ -23,7 +23,7 @@
   background: #f9f9f9;
   margin-top: 1rem;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -45,6 +45,7 @@
   text-align: center;
   border-bottom: 1px solid #ddd;
   font-size: 0.9rem;
+  
 }
 
 .implantCard-container thead th {
@@ -53,6 +54,7 @@
   background: #f8f8f8;
   z-index: 2;
 }
+
 
 @media (max-width: 480px) {
   .implantCard-container th,

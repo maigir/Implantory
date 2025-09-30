@@ -11,7 +11,7 @@ function ScanButton() {
 
   return (
     <button
-      onClic={goToScanner}
+      onClick={goToScanner}
       className="sticky-scan-button"
     >
       <LuScan 

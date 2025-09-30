@@ -1,28 +1,15 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://localhost:3000/api'
 });
 
-const handleError = (err) => {
-  console.error('API error:', err.response.data || err.message);
-  throw err;
-}
-
-export const fetchAllNewImplants = async () => {
+export const getAllImplants = async () => {
   try {
-    const { data } = await api.get('/new');
-    return data;
+    const response = await api.get('/implants');
+    return response.data.data;
   } catch(err) {
-    handleError(err);
-  }
-};
-
-export const fetchAllUsedImplants = async () => {
-  try {
-    const { data }= await api.get('/used');
-    return data;
-  } catch(err) {
-    handleError(err);
+    console.error('Error fetching implants:', err)
+    return []; //for not breaking the app
   }
 };

@@ -23,6 +23,24 @@ const createImplant = async (req, res) => {
     }
 }
 
+const getAllImplants = async (req, res) => {
+    try {
+        const allImplants = await implant.findAll();
+        const implants = allImplants.map(impl => impl.toJSON());
+
+        console.log("Fetched implants:", implants)
+;        res.status(200).json({
+            status: 'success',
+            data: implants
+        })
+    } catch(err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message
+        })
+    }
+}
+
 const getAllNewImplants = async (req, res) => {
     try {
         const newImplants = await implant.findAll({
@@ -37,8 +55,7 @@ const getAllNewImplants = async (req, res) => {
 
         res.status(200).json({
             status: 'Success!',
-            products: newImplants.length,
-            message: newImplants
+            data: newImplants
         })
     } catch (err) {
         res.status(500).json({
@@ -62,8 +79,7 @@ const getAllUsedImplants = async (req, res) => {
         }
         res.status(200).json({
             status: 'Success!',
-            products: usedImplants.length,
-            message: usedImplants
+            data: usedImplants
             });
     } catch(err) {
         res.status(404).json({
@@ -118,7 +134,8 @@ const deleteImplant = async (req, res) => {
 
         res.status(200).json({
             status: 'Success!',
-            message: `Implant with ID ${id} deleted!`
+            message: `Implant with ID ${id} deleted!`,
+            data: implantItem
         })
     } catch(err){
         res.status(500).json({
@@ -129,5 +146,5 @@ const deleteImplant = async (req, res) => {
     
 }
 
-export default {createImplant, getAllNewImplants, updateImplant, deleteImplant, getAllUsedImplants};
+export default {createImplant, getAllNewImplants, updateImplant, deleteImplant, getAllUsedImplants, getAllImplants};
 

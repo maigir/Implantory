@@ -2,7 +2,6 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 import { useState, useEffect } from 'react';
 
 function QRScanner() {
-
   const [scanResult, setScanResult] = useState(null);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ function QRScanner() {
       }
 
       function error(err) {
-      console.warn(err);
+      console.error(err);
       }
   }, []);
 

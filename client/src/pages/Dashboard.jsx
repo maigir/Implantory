@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { LuDiameter } from "react-icons/lu";
 import AccordionCard from '../components/AccordionCard/AccordionCard';
 import ScanButton from '../components/ScanButton/ScanButton';
 import ImplantCard from '../components/ImplantCard/ImplantCard';
@@ -10,6 +11,7 @@ function Dashboard() {
   const [activeTab, setActiveTab] = useState("new");
   const [search, setSearch] = useState("");
   const [implants, setImplants] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -29,6 +31,22 @@ function Dashboard() {
     fetchImplants();
   }, [])
 
+  useEffect(() => {
+    if(!search.trim()) {
+      setSearchResult([]);
+      return;
+    }
+
+    const filtered = implants.filter(implant => 
+      Object.values(implant).some(val => 
+        val !== null && 
+        val.toString().toLowerCase().includes(search.toLowerCase())
+      )
+    );
+
+    setSearchResult(filtered)
+  }, [search, implants])
+
   return (
     <div className="dashboard">
       <header className="dashboard__header">
@@ -47,6 +65,7 @@ function Dashboard() {
         </button>
       </header>
 
+      {search.trim() === "" && (
       <nav className="dashboard__tabs">
         <button
           className={`dashboard__tab ${
@@ -65,9 +84,45 @@ function Dashboard() {
           Used Implants
         </button>
       </nav>
+    )}
 
       <main className="dashboard__content">
-        {activeTab === "new" ? (
+        {search.trim() ? (
+          <>
+            {searchResult.length > 0 ? (
+              <div className="searchResults-container">
+                <table className="searchResults-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th><LuDiameter /></th>
+                      <th>Length</th>
+                      <th>REF</th>
+                      <th>LOT</th>
+                      <th>DATE</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {searchResult.map(impl => (
+                      <tr key={impl.id}>
+                        <td>{impl.implantName}</td>
+                        <td>{impl.diameter}</td>
+                        <td>{impl.length}</td>
+                        <td>{impl.REF}</td>
+                        <td>{impl.LOT}</td>
+                        <td>{impl.status === "new" ? impl.addedAt : impl.usedAt}</td>
+                        <td>{impl.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p>No results found for "{search}"</p>
+            )}
+          </>
+        ) : activeTab === 'new' ? (
           <>
             <AccordionCard 
               title="BLX"
@@ -193,5 +248,4 @@ function Dashboard() {
     </div>
   );
 }
-
 export default Dashboard;

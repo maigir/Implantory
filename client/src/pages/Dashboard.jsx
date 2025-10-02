@@ -5,6 +5,7 @@ import AccordionCard from '../components/AccordionCard/AccordionCard';
 import ScanButton from '../components/ScanButton/ScanButton';
 import ImplantCard from '../components/ImplantCard/ImplantCard';
 import { getAllImplants } from '../services/api.js';
+import { IoSearchOutline } from "react-icons/io5";
 import "./dashboard.css";
 
 function Dashboard() {
@@ -37,12 +38,17 @@ function Dashboard() {
       return;
     }
 
-    const filtered = implants.filter(implant => 
-      Object.values(implant).some(val => 
-        val !== null && 
-        val.toString().toLowerCase().includes(search.toLowerCase())
-      )
-    );
+    const multipleTerms = search.toLowerCase().split(" ");
+
+    const filtered = implants.filter(implant => {
+      
+      const implantText = Object.values(implant)
+        .filter(val => val !== null)
+        .join(" ")
+        .toLowerCase();
+
+      return multipleTerms.every(multiple => implantText.includes(multiple));
+    });
 
     setSearchResult(filtered)
   }, [search, implants])
@@ -50,16 +56,20 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <header className="dashboard__header">
+        <button className="dashboard__button">
+          + Add
+        </button>
         <div className="dashboard__search">
           <input
             type="text"
             placeholder="Search implants..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+
           />
         </div>
         <button 
-            className="dashboard__logout"
+            className="dashboard__button"
             onClick={handleLogout}>
                 Logout
         </button>

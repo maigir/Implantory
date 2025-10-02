@@ -28,7 +28,6 @@ const getAllImplants = async (req, res) => {
         const allImplants = await implant.findAll();
         const implants = allImplants.map(impl => impl.toJSON());
 
-        console.log("Fetched implants:", implants)
 ;        res.status(200).json({
             status: 'success',
             data: implants

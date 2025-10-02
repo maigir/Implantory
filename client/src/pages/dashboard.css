@@ -42,7 +42,7 @@ body {
 }
 
 /* Logout button */
-.dashboard__logout {
+.dashboard__button {
   background: #dc3545;
   border: none;
   color: #fff;
@@ -53,7 +53,7 @@ body {
   transition: background 0.2s ease;
 }
 
-.dashboard__logout:hover {
+.dashboard__button:hover {
   background: #c82333;
 }
 
@@ -127,9 +127,11 @@ body {
 
 .searchResults-table td {
   padding: 0.75rem 1rem;
-  border-top: 1px solid #f3f4f6;
+  /* border-top: 1px solid #f3f4f6; */
   color: #4b5563;
 }
+
+
 
 @media (max-width: 646px) {
   .searchResults-table td {

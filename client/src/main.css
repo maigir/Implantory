@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.button {
+  background: #dc3545;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #c82333;
+}

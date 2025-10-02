@@ -14,10 +14,15 @@ function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const DUMMY_USER = {
+        username: 'admin',
+        password: '7734'
+    }
+
     const handleLogin = (e) => {
         e.preventDefault();
 
-        if(username === 'admin' && password === '7734') {
+        if(username === DUMMY_USER.username && password === DUMMY_USER.password) {
             localStorage.setItem('isLoggedIn', 'true');
             navigate('/dashboard');
         } else {

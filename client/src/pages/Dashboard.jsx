@@ -4,8 +4,11 @@ import { LuDiameter } from "react-icons/lu";
 import AccordionCard from '../components/AccordionCard/AccordionCard';
 import ScanButton from '../components/ScanButton/ScanButton';
 import ImplantCard from '../components/ImplantCard/ImplantCard';
-import { getAllImplants } from '../services/api.js';
-import { IoSearchOutline } from "react-icons/io5";
+import FormModal from '../components/Modal/FormModal';
+import Modal from '../components/Modal/Modal';
+import { getAllImplants, postNewImplant } from '../services/api.js';
+
+// import { IoSearchOutline } from "react-icons/io5";
 import "./dashboard.css";
 
 function Dashboard() {
@@ -13,25 +16,47 @@ function Dashboard() {
   const [search, setSearch] = useState("");
   const [implants, setImplants] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const navigate = useNavigate();
 
+  const handleAddImplant = async (newImplant) => {
+    try {
+    const savedImplant = await postNewImplant(newImplant);
+    setImplants(prev => [...prev, savedImplant]);
+    setIsModalOpen(false);
+    navigate(0);
+
+    console.log("New implant saved:", savedImplant);
+  } catch (err) {
+    console.error("Failed to add implant:", err);
+  }
+}
+
+  // TODO: proper login-system (tokens, jwt)
+  // at the moment, dummy login 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     navigate('/login');
   }
 
-    useEffect(() => {
-      const fetchImplants = async () => {
-        try {
-          const data = await getAllImplants(); // fetch from backend
-          setImplants(data);
-        } catch(err) {
-          console.error(err);
-        }
+
+  // fetching data from backend
+  // TODO: proper error handling (full project)
+  useEffect(() => {
+    const fetchImplants = async () => {
+      try {
+        const data = await getAllImplants(); // fetch from backend
+        setImplants(data);
+      } catch(err) {
+        console.error(err);
+      }
     };
     fetchImplants();
   }, [])
 
+
+  // searching by multiple keywords
   useEffect(() => {
     if(!search.trim()) {
       setSearchResult([]);
@@ -53,26 +78,37 @@ function Dashboard() {
     setSearchResult(filtered)
   }, [search, implants])
 
+
   return (
     <div className="dashboard">
       <header className="dashboard__header">
-        <button className="dashboard__button">
+        <button 
+          className="button"
+          onClick={() => setIsModalOpen(true)}
+        >
           + Add
         </button>
+
+        {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          {<FormModal onSubmit={handleAddImplant} />}
+        </Modal>
+      )}
         <div className="dashboard__search">
           <input
             type="text"
             placeholder="Search implants..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-
           />
         </div>
+
         <button 
-            className="dashboard__button"
+            className="button"
             onClick={handleLogout}>
                 Logout
         </button>
+
       </header>
 
       {search.trim() === "" && (

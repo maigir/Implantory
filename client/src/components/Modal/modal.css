@@ -1,0 +1,39 @@
+.modal-backdrop {
+  position: fixed;    
+  top: 0;
+  left: 0;
+  width: 100vw;        
+  height: 100vh;        
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  z-index: 100;
+}
+
+.modal-container {
+  background-color: #fff;  
+  padding: 2rem;
+  border-radius: 0.5rem;   
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 500px;        
+  position: relative; 
+}
+
+.modal-x-button {
+  position: absolute;          
+  top: 0.8rem;         
+  right: 1rem;         
+  color: #6B7280;   
+  border: none;
+  font-size: 1.2rem;
+  background: transparent; 
+  cursor: pointer;        
+  transition: color 0.2s, font-size 0.2s;
+}
+
+.modal-x-button:hover {
+  color: #000;
+  font-size: 1.3rem;
+}

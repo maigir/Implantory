@@ -7,10 +7,10 @@ const ImplantItem = sequelize.define('ImplantItem', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    code: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    // code: {
+    //     type: DataTypes.STRING,
+    //     allowNull: true,
+    // },
     diameter: {
         type: DataTypes.DECIMAL(3, 2), 
         allowNull: false,
@@ -39,7 +39,7 @@ const ImplantItem = sequelize.define('ImplantItem', {
         
         get() { 
             const date = this.getDataValue("addedAt");
-            return date ? dayjs(date).format("YYYY-MM-DD") : null;
+            return date ? dayjs(date).format("DD.MM.YY") : null;
         }
     },
     usedAt: {
@@ -49,7 +49,7 @@ const ImplantItem = sequelize.define('ImplantItem', {
 
         get() { 
             const date = this.getDataValue("usedAt");
-            return date ? dayjs(date).format("YYYY-MM-DD") : null;
+            return date ? dayjs(date).format("DD.MM.YY") : null;
         }
     },
 },
@@ -58,6 +58,12 @@ const ImplantItem = sequelize.define('ImplantItem', {
     timestamps: false,
 
 });
+
+ImplantItem.beforeCreate(item => {
+    if(item.status === 'Used' && !item.usedAt) {
+        item.usedAt = new Date();
+    }
+})
 
 // If status changes from 'new' => 'used' 
 // hook

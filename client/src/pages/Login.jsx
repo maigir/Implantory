@@ -40,7 +40,6 @@ function Login() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '100vh',
-                background: '#f5f5f5',
             }}
         >
         <Paper

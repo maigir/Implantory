@@ -1,4 +1,3 @@
-import FormModal from './FormModal';
 import './modal.css';
 
 

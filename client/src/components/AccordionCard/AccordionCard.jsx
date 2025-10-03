@@ -1,16 +1,13 @@
-import { useState } from 'react';
 import { SlArrowDown, SlArrowUp} from "react-icons/sl";
 import { LuDiameter } from "react-icons/lu";
 import './accordionCard.css';
 
-function AccordionCard({ type, title, children }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function AccordionCard({ type, title, children, isOpen, onToggle }) {
   return (
     <div className="accordionCard">
       <div 
         className="accordionCard-header"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
       >
         <h3>{title}</h3>
         <span>{isOpen ? <SlArrowUp /> : <SlArrowDown/>}</span>

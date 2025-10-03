@@ -9,6 +9,8 @@ import {
     Container,
 } from '@mui/material';
 
+// TODO: Redo login page UI
+
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

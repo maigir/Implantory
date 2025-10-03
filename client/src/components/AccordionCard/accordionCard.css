@@ -22,9 +22,9 @@
   overflow-y: auto;
   background: #f9f9f9;
   margin-top: 1rem;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0;
+  border-radius: 0.2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-top: 0.9px solid rgb(83, 80, 80);
 }
 
 /* IMPLANTCARD */
@@ -32,6 +32,7 @@
   display: flex;
   justify-content: space-evenly;
   gap: 1rem;
+  
 }
 
 .implantCard-container table {
@@ -43,19 +44,16 @@
 }
 
 .implantCard-container th {
+  position: sticky;
+  top: 0;
   text-align: center;
   border-bottom: 1px solid #ddd;
   font-size: 0.9rem;
-  
-}
-
-.implantCard-container thead th {
-  position: sticky;
-  text-align: center;
   padding: 0.75rem 1rem;
   border-bottom: 0.9px solid rgb(83, 80, 80);
+  background: white;
+  
 }
-
 
 @media (max-width: 480px) {
   .implantCard-container th,

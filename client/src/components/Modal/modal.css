@@ -30,10 +30,9 @@
   font-size: 1.2rem;
   background: transparent; 
   cursor: pointer;        
-  transition: color 0.2s, font-size 0.2s;
+  transition: font-size 0.2s;
 }
 
 .modal-x-button:hover {
-  color: #000;
   font-size: 1.3rem;
 }

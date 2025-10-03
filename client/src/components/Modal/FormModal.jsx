@@ -32,8 +32,8 @@ function FormModal({ onSubmit }) {
 
   return (
 
-    // TODO: form error handling!
-    
+    // TODO: validation!
+
     <form onSubmit={handleSubmit} className="form-container">
       {Object.keys(formData).map(val => (
         <div key={val}>

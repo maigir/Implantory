@@ -6,9 +6,7 @@ import ScanButton from '../components/ScanButton/ScanButton';
 import ImplantCard from '../components/ImplantCard/ImplantCard';
 import FormModal from '../components/Modal/FormModal';
 import Modal from '../components/Modal/Modal';
-import { getAllImplants, postNewImplant } from '../services/api.js';
-
-// import { IoSearchOutline } from "react-icons/io5";
+import { getAllImplants, postNewImplant, deleteImplant } from '../services/api.js';
 import "./dashboard.css";
 
 function Dashboard() {
@@ -17,41 +15,50 @@ function Dashboard() {
   const [implants, setImplants] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [openAccordion, setOpenAccordion] = useState(null);
   const navigate = useNavigate();
 
-  const handleAddImplant = async (newImplant) => {
-    try {
-    const savedImplant = await postNewImplant(newImplant);
-    setImplants(prev => [...prev, savedImplant]);
-    setIsModalOpen(false);
-    navigate(0);
-
-    console.log("New implant saved:", savedImplant);
-  } catch (err) {
-    console.error("Failed to add implant:", err);
-  }
-}
-
   // TODO: proper login-system (tokens, jwt)
-  // at the moment, dummy login 
+  // at the moment, dummy login + PrivateRoute.jsx -> main.jsx
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     navigate('/login');
   }
 
+  const handleAddImplant = async (newImplants) => {
+    try {
+      const savedImplant = await postNewImplant(newImplants);
+      setImplants(prev => [...prev, savedImplant]);
+      setIsModalOpen(false);
+
+      console.log("New implant saved:", savedImplant);
+    } catch (err) {
+        console.error("Failed to add implant:", err);
+    }
+  }
+
+  const handleDelete = async (id) => {
+    try {
+    const delImplant = await deleteImplant(id); 
+    console.log(delImplant); 
+    fetchImplants(implants);
+    } catch(err) {
+      console.error('Failed to delete:', err);
+    }
+  }
 
   // fetching data from backend
-  // TODO: proper error handling (full project)
+  // using 
+  const fetchImplants = async () => {
+    try {
+      const data = await getAllImplants(); // fetch from backend
+      setImplants(data);
+    } catch(err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
-    const fetchImplants = async () => {
-      try {
-        const data = await getAllImplants(); // fetch from backend
-        setImplants(data);
-      } catch(err) {
-        console.error(err);
-      }
-    };
     fetchImplants();
   }, [])
 
@@ -64,20 +71,20 @@ function Dashboard() {
     }
 
     const multipleTerms = search.toLowerCase().split(" ");
-
-    const filtered = implants.filter(implant => {
-      
+    const filtered = implants.filter(implant => {  
       const implantText = Object.values(implant)
         .filter(val => val !== null)
         .join(" ")
         .toLowerCase();
-
       return multipleTerms.every(multiple => implantText.includes(multiple));
     });
 
     setSearchResult(filtered)
   }, [search, implants])
 
+  function formatDiameter(diameter) {
+    return Number(diameter);
+  }
 
   return (
     <div className="dashboard">
@@ -173,6 +180,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLX"
               type="new"
+              isOpen={openAccordion === 'BLX'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLX' ? null : 'BLX')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLX' && impl.status === 'new')
@@ -185,6 +196,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.addedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }
@@ -192,6 +204,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLC"
               type="new"
+              isOpen={openAccordion === 'BLC'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLC' ? null : 'BLC')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLC' && impl.status === 'new')
@@ -204,6 +220,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.addedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }
@@ -211,6 +228,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLT"
               type="new"
+              isOpen={openAccordion === 'BLT'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLT' ? null : 'BLT')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLT' && impl.status === 'new')
@@ -223,6 +244,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.addedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }
@@ -233,6 +255,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLX"
               type="used"
+              isOpen={openAccordion === 'BLX'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLX' ? null : 'BLX')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLX' && impl.status === 'used')
@@ -245,6 +271,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.usedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }
@@ -252,6 +279,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLC"
               type="used"
+              isOpen={openAccordion === 'BLC'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLC' ? null : 'BLC')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLC' && impl.status === 'used')
@@ -264,6 +295,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.usedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }
@@ -271,6 +303,10 @@ function Dashboard() {
             <AccordionCard 
               title="BLT"
               type="used"
+              isOpen={openAccordion === 'BLT'}
+              onToggle={() => 
+                setOpenAccordion(openAccordion === 'BLT' ? null : 'BLT')
+              }
             >
               {implants
                 .filter(impl => impl.implantName === 'BLT' && impl.status === 'used')
@@ -283,6 +319,7 @@ function Dashboard() {
                     REF={impl.REF}
                     LOT={impl.LOT}
                     date={impl.usedAt}
+                    onDelete={() => handleDelete(impl.id)}
                   />
                 )))
               }

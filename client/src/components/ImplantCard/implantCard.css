@@ -1,6 +1,6 @@
 .implantCard,
 .implantCard td {
-  background-color: #ddd;
+  background-color: #f9f9f9;
 }
 
 .implantCard {
@@ -15,8 +15,33 @@
 .implantCard td {
   text-align: center;
   border: none;
+  letter-spacing: 0.2px;
+  font-size: 0.9rem;
   padding: 0.5rem;
 }
+
+.implantCard-actions {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  margin-left: 0.8rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.implantCard .icon {
+  display: flex;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+  gap: 2rem;
+}
+
+.implantCard .icon:hover {
+  color: red;
+}
+
 
 @media (max-width: 480px) {
   .implantCard {

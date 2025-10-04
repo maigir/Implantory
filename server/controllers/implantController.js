@@ -1,4 +1,4 @@
-import implant from '../models/implant.js';
+import implant from '../models/Implant.js';
 
 const createImplant = async (req, res) => {
     try {

@@ -59,14 +59,14 @@ const ImplantItem = sequelize.define('ImplantItem', {
 
 });
 
+// Adds 'usedAt' date when entering implants manually
 ImplantItem.beforeCreate(item => {
     if(item.status === 'Used' && !item.usedAt) {
         item.usedAt = new Date();
     }
 })
 
-// If status changes from 'new' => 'used' 
-// hook
+// Hook: if 'status' changes from 'new' => 'used' 
 ImplantItem.beforeUpdate(item => {
     if(item.changed('status') && item.status === 'used' && !item.usedAt)
         item.usedAt = new Date();

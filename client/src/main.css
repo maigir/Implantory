@@ -4,17 +4,24 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
 .button {
-  background: #dc3545;
+  background-color: #dc3545;
   border: none;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
 
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .button:hover {
-  background: #c82333;
+  background-color: #c82333;
 }

@@ -34,16 +34,16 @@ function FormModal({ onSubmit }) {
 
     // TODO: validation!
 
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className="form">
       {Object.keys(formData).map(val => (
         <div key={val}>
-          <label className="form-label">{val}*</label>
+          <label className="form__label">{val}*</label>
           <input 
             type="text"
             name={val}
             value={formData[val]}
             onChange={handleChange}
-            className="form-input"
+            className="form__input"
           />
         </div>
       ))}

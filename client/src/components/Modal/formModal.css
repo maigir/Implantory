@@ -1,26 +1,26 @@
 
 
-.form-container {
+.form {
   display: flex;
   flex-direction: column;
   gap: 1rem; 
 
 }
 
-.form-label {
+.form__label {
   display: block;           
   text-transform: capitalize;
   margin-bottom: 0.2rem;
 }
 
-.form-input {
+.form__input {
   width: 100%;              
   border: 1px solid #d1d5db; 
   border-radius: 4px;   
   padding: 0.25rem 0.5rem;  
 }
 
-.form-input:focus {
+.form__input:focus {
   outline: none;
   border-color: #505860;
 }

@@ -12,7 +12,7 @@ function ScanButton() {
   return (
     <button
       onClick={goToScanner}
-      className="sticky-scan-button"
+      className="scan__button"
     >
       <LuScan 
         size={35}

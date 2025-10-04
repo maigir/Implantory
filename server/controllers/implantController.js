@@ -42,54 +42,6 @@ const getAllImplants = async (req, res) => {
     }
 }
 
-const getAllNewImplants = async (req, res) => {
-    try {
-        const newImplants = await implant.findAll({
-            where: {status: 'new'}
-        });
-        if(!newImplants) {
-            return res.status(404).json({
-                status: 'fail',
-                message: "No implants with status 'new' found!"
-            })
-        }
-
-        res.status(200).json({
-            status: 'Success!',
-            data: newImplants
-        })
-    } catch (err) {
-        res.status(500).json({
-            status: 'fail',
-            message: err.message
-        })
-    }
-}
-
-const getAllUsedImplants = async (req, res) => {
-    try {
-        const usedImplants = await implant.findAll({
-            where: {status: 'used'}
-        })
-
-        if(!usedImplants) {
-            return res.status(404).json({
-                status: 'fail',
-                message: `No implants with status 'used' found!`
-            })
-        }
-        res.status(200).json({
-            status: 'Success!',
-            data: usedImplants
-            });
-    } catch(err) {
-        res.status(404).json({
-            status: 'fail',
-            message: err.message
-        })
-    }
-}
-
 // .save() triggers hook
 const updateImplant = async (req, res) => {
     try {
@@ -147,5 +99,5 @@ const deleteImplant = async (req, res) => {
     
 }
 
-export default {createImplant, getAllNewImplants, updateImplant, deleteImplant, getAllUsedImplants, getAllImplants};
+export default {createImplant, updateImplant, deleteImplant, getAllImplants};
 

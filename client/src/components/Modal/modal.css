@@ -1,4 +1,4 @@
-.modal-backdrop {
+.modal__backdrop {
   position: fixed;    
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 100;
 }
 
-.modal-container {
+.modal__container {
   background-color: #fff;  
   padding: 2rem;
   border-radius: 0.5rem;   
@@ -21,7 +21,7 @@
   position: relative; 
 }
 
-.modal-x-button {
+.modal__close-button {
   position: absolute;          
   top: 0.8rem;         
   right: 1rem;         
@@ -33,6 +33,6 @@
   transition: font-size 0.2s;
 }
 
-.modal-x-button:hover {
+.modal__close-button:hover {
   font-size: 1.3rem;
 }

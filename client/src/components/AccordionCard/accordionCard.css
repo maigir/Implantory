@@ -1,15 +1,15 @@
 /* ACCORDIONCARD */
-.accordionCard {
+.accordionCard__container {
   margin-bottom: 1rem;
   padding: 0 10px;
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  transition: all 0.2s ease;
 
+  transition: all 0.2s ease;
 }
 
-.accordionCard-header {
+.accordionCard__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.accordionCard-content {
+.accordionCard__content {
   max-height: 400px;
   overflow-y: auto;
   background: #f9f9f9;
@@ -28,14 +28,13 @@
 }
 
 /* IMPLANTCARD */
-.implantCard-container {
+.accordionCard__implantCard--container {
   display: flex;
   justify-content: space-evenly;
   gap: 1rem;
-  
 }
 
-.implantCard-container table {
+.accordionCard__implantCard--container table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0.5rem 0;
@@ -43,7 +42,7 @@
   font-weight: normal;
 }
 
-.implantCard-container th {
+.accordionCard__implantCard--container th {
   position: sticky;
   top: 0;
   text-align: center;
@@ -56,8 +55,8 @@
 }
 
 @media (max-width: 480px) {
-  .implantCard-container th,
-  .implantCard-container td {
+  .accordionCard__implantCard--container th,
+  .accordionCard__implantCard--container td {
     font-size: 12px;
     padding: 0.5rem 1rem 0.5rem 0;
   }

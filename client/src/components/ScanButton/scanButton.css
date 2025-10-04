@@ -1,12 +1,10 @@
 
-.sticky-scan-button {
+.scan__button {
   display: none;
 }
 
-/* only phones */
-
 @media (max-width: 480px) {
-  .sticky-scan-button {
+  .scan__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +22,7 @@
     transition: background-color 0.1s ease;
   }
 
-  .sticky-scan-button:active {
+  .scan__button:active {
     background-color: #c82333;
   }
 

@@ -5,8 +5,8 @@ function ImplantCard({ implantName, diameter, length, REF, LOT, date, onDelete }
   return (
     <>
       <tr className="implantCard">
-        <td className="implantCard-actions">
-          <div><MdDeleteForever className="icon" onClick={onDelete} /></div>
+        <td className="implantCard__actions">
+          <div><MdDeleteForever className="implantCard__icon" onClick={onDelete} /></div>
           <div>{implantName}</div>    
         </td>
         <td>{diameter}</td>

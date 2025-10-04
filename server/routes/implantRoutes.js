@@ -9,14 +9,6 @@ router
     .get(implantController.getAllImplants);
 
 router
-    .route('/new')
-    .get(implantController.getAllNewImplants)
-
-router
-    .route('/used')
-    .get(implantController.getAllUsedImplants)
-
-router
     .route('/:id')
     .patch(implantController.updateImplant)
     .delete(implantController.deleteImplant)

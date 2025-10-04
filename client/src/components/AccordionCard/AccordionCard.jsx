@@ -4,9 +4,9 @@ import './accordionCard.css';
 
 function AccordionCard({ type, title, children, isOpen, onToggle }) {
   return (
-    <div className="accordionCard">
+    <div className="accordionCard__container">
       <div 
-        className="accordionCard-header"
+        className="accordionCard__header"
         onClick={onToggle}
       >
         <h3>{title}</h3>
@@ -14,8 +14,8 @@ function AccordionCard({ type, title, children, isOpen, onToggle }) {
       </div>
 
       {isOpen && (
-        <div className='accordionCard-content'>
-          <div className='implantCard-container'>
+        <div className='accordionCard__content'>
+          <div className='accordionCard__implantCard--container'>
             <table>
               <thead>
                 <tr>

@@ -82,10 +82,6 @@ function Dashboard() {
     setSearchResult(filtered)
   }, [search, implants])
 
-  function formatDiameter(diameter) {
-    return Number(diameter);
-  }
-
   return (
     <div className="dashboard">
       <header className="dashboard__header">
@@ -101,8 +97,9 @@ function Dashboard() {
           {<FormModal onSubmit={handleAddImplant} />}
         </Modal>
       )}
-        <div className="dashboard__search">
+        <div>
           <input
+            className="dashboard__search-input"
             type="text"
             placeholder="Search implants..."
             value={search}
@@ -143,29 +140,29 @@ function Dashboard() {
         {search.trim() ? (
           <>
             {searchResult.length > 0 ? (
-              <div className="searchResults-container">
-                <table className="searchResults-table">
+              <div className="dashboard__search-results">
+                <table className="dashboard__table">
                   <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th><LuDiameter /></th>
-                      <th>Length</th>
-                      <th>REF</th>
-                      <th>LOT</th>
-                      <th>DATE</th>
-                      <th>Status</th>
+                    <tr className="dashboard__table-row">
+                      <th className="dashboard__table-header">Name</th>
+                      <th className="dashboard__table-header"><LuDiameter /></th>
+                      <th className="dashboard__table-header">Length</th>
+                      <th className="dashboard__table-header">REF</th>
+                      <th className="dashboard__table-header">LOT</th>
+                      <th className="dashboard__table-header">DATE</th>
+                      <th className="dashboard__table-header">Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {searchResult.map(impl => (
-                      <tr key={impl.id}>
-                        <td>{impl.implantName}</td>
-                        <td>{impl.diameter}</td>
-                        <td>{impl.length}</td>
-                        <td>{impl.REF}</td>
-                        <td>{impl.LOT}</td>
-                        <td>{impl.status === "new" ? impl.addedAt : impl.usedAt}</td>
-                        <td>{impl.status}</td>
+                      <tr key={impl.id} className="dashboard__table-row">
+                        <td className="dashboard__table-cell">{impl.implantName}</td>
+                        <td className="dashboard__table-cell">{impl.diameter}</td>
+                        <td className="dashboard__table-cell">{impl.length}</td>
+                        <td className="dashboard__table-cell">{impl.REF}</td>
+                        <td className="dashboard__table-cell">{impl.LOT}</td>
+                        <td className="dashboard__table-cell">{impl.status === "new" ? impl.addedAt : impl.usedAt}</td>
+                        <td className="dashboard__table-cell">{impl.status}</td>
                       </tr>
                     ))}
                   </tbody>

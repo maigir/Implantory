@@ -10,18 +10,18 @@ export const getAllImplants = async () => {
     return response.data.data;
   } catch(err) {
     console.error('Error fetching implants:', err)
-    return []; // for not breaking the app
+    return []; //fallback
   }
 };
 
 export const postNewImplant = async (implantData) => {
   try {
     const response = await api.post('/implants', implantData);
-    return response.data.data; // saved implant from backend
+    return response.data.data;
   } catch(err) {
     console.error('Error creating new implant:', err);
-    throw err; //important!! for frontend
-}
+    throw err;
+  }
 }
 
 export const deleteImplant = async (id) => {
@@ -31,6 +31,6 @@ export const deleteImplant = async (id) => {
     return response.data.message;
   } catch(err) {
     console.error('Error deleting implant:', err);
-    throw err; //important!! for frontend
-}
+    throw err;
+  }
 }

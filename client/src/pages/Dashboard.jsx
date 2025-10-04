@@ -18,6 +18,10 @@ function Dashboard() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const navigate = useNavigate();
 
+  const tabType = ['new', 'used'];
+  const implantType = ['BLX', 'BLC', 'BLT'];
+  const tableHeaders = ['Name', 'Diameter', 'Length', 'REF', 'LOT', 'Date', 'Status'];
+
   // TODO: proper login-system (tokens, jwt)
   // at the moment, dummy login + PrivateRoute.jsx -> main.jsx
   const handleLogout = () => {
@@ -41,14 +45,12 @@ function Dashboard() {
     try {
     const delImplant = await deleteImplant(id); 
     console.log(delImplant); 
-    fetchImplants(implants);
+    fetchImplants();
     } catch(err) {
       console.error('Failed to delete:', err);
     }
   }
 
-  // fetching data from backend
-  // using 
   const fetchImplants = async () => {
     try {
       const data = await getAllImplants(); // fetch from backend
@@ -69,7 +71,6 @@ function Dashboard() {
       setSearchResult([]);
       return;
     }
-
     const multipleTerms = search.toLowerCase().split(" ");
     const filtered = implants.filter(implant => {  
       const implantText = Object.values(implant)
@@ -82,8 +83,11 @@ function Dashboard() {
     setSearchResult(filtered)
   }, [search, implants])
 
+  /*  ------------------------------------------------- */ 
+
   return (
     <div className="dashboard">
+      {/* ----------------- HEADER ------------------ */}
       <header className="dashboard__header">
         <button 
           className="button"
@@ -97,72 +101,72 @@ function Dashboard() {
           {<FormModal onSubmit={handleAddImplant} />}
         </Modal>
       )}
-        <div>
-          <input
-            className="dashboard__search-input"
-            type="text"
-            placeholder="Search implants..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+    
+        <input
+          className="dashboard__search-input"
+          type="text"
+          placeholder="Search implants..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
         <button 
             className="button"
             onClick={handleLogout}>
                 Logout
         </button>
-
       </header>
 
+      {/* _________________ TABS ___________________ */}
       {search.trim() === "" && (
-      <nav className="dashboard__tabs">
-        <button
-          className={`dashboard__tab ${
-            activeTab === "new" ? "dashboard__tab--active" : ""
-          }`}
-          onClick={() => setActiveTab("new")}
-        >
-          New Implants
-        </button>
-        <button
-          className={`dashboard__tab ${
-            activeTab === "used" ? "dashboard__tab--active" : ""
-          }`}
-          onClick={() => setActiveTab("used")}
-        >
-          Used Implants
-        </button>
-      </nav>
-    )}
+        <nav className="dashboard__tabs">
+          {tabType.map(tab => (
+            <button
+              key={tab}
+              className={`dashboard__tab ${
+                activeTab === tab ? 'dashboard__tab-active' : ''
+              }`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab === 'new' ? 'New Implants' : 'Used implants'}
+          </button>
+          ))}
+        </nav>
+      )}
 
       <main className="dashboard__content">
         {search.trim() ? (
           <>
+          {/* ----------------- SEARCH CONTAINER ----------------  */}
             {searchResult.length > 0 ? (
               <div className="dashboard__search-results">
                 <table className="dashboard__table">
                   <thead>
                     <tr className="dashboard__table-row">
-                      <th className="dashboard__table-header">Name</th>
-                      <th className="dashboard__table-header"><LuDiameter /></th>
-                      <th className="dashboard__table-header">Length</th>
-                      <th className="dashboard__table-header">REF</th>
-                      <th className="dashboard__table-header">LOT</th>
-                      <th className="dashboard__table-header">DATE</th>
-                      <th className="dashboard__table-header">Status</th>
+                      {tableHeaders.map(header => (
+                        <th key={header} className="dashboard__table-header">
+                          {header === 'Diameter' ? <LuDiameter /> : header}
+                        </th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
                     {searchResult.map(impl => (
                       <tr key={impl.id} className="dashboard__table-row">
-                        <td className="dashboard__table-cell">{impl.implantName}</td>
-                        <td className="dashboard__table-cell">{impl.diameter}</td>
-                        <td className="dashboard__table-cell">{impl.length}</td>
-                        <td className="dashboard__table-cell">{impl.REF}</td>
-                        <td className="dashboard__table-cell">{impl.LOT}</td>
-                        <td className="dashboard__table-cell">{impl.status === "new" ? impl.addedAt : impl.usedAt}</td>
-                        <td className="dashboard__table-cell">{impl.status}</td>
+                        {[
+                          impl.implantName,
+                          impl.diameter,
+                          impl.length,
+                          impl.REF,
+                          impl.LOT,
+                          impl.status === 'new' ? impl.addedAt : impl.usedAt,
+                          impl.status,
+                        ].map((value, key) => (
+                          <td key={key} className="dashboard__table-cell">
+                            {value}
+                          </td>
+                        ))
+                        }
                       </tr>
                     ))}
                   </tbody>
@@ -174,153 +178,63 @@ function Dashboard() {
           </>
         ) : activeTab === 'new' ? (
           <>
-            <AccordionCard 
-              title="BLX"
-              type="new"
-              isOpen={openAccordion === 'BLX'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLX' ? null : 'BLX')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLX' && impl.status === 'new')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.addedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
-            <AccordionCard 
-              title="BLC"
-              type="new"
-              isOpen={openAccordion === 'BLC'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLC' ? null : 'BLC')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLC' && impl.status === 'new')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.addedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
-            <AccordionCard 
-              title="BLT"
-              type="new"
-              isOpen={openAccordion === 'BLT'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLT' ? null : 'BLT')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLT' && impl.status === 'new')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.addedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
+            {implantType.map(type => (
+              <AccordionCard 
+                key={type}
+                title={type}
+                type={activeTab}
+                isOpen={openAccordion === type}
+                onToggle={() => 
+                  setOpenAccordion(openAccordion === type ? null : type)
+                }
+              >
+                {implants
+                  .filter(impl => impl.implantName === type && impl.status === activeTab)
+                  .map((impl => (
+                    <ImplantCard 
+                      key={impl.id}
+                      implantName={impl.implantName}
+                      diameter={impl.diameter}
+                      length={impl.length}
+                      REF={impl.REF}
+                      LOT={impl.LOT}
+                      date={activeTab === 'new' ? impl.addedAt : impl.usedAt}
+                      onDelete={() => handleDelete(impl.id)}
+                    />
+                  )))
+                }
+              </AccordionCard>
+            ))}
           </>
         ) : (
           <>
-            <AccordionCard 
-              title="BLX"
-              type="used"
-              isOpen={openAccordion === 'BLX'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLX' ? null : 'BLX')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLX' && impl.status === 'used')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.usedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
-            <AccordionCard 
-              title="BLC"
-              type="used"
-              isOpen={openAccordion === 'BLC'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLC' ? null : 'BLC')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLC' && impl.status === 'used')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.usedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
-            <AccordionCard 
-              title="BLT"
-              type="used"
-              isOpen={openAccordion === 'BLT'}
-              onToggle={() => 
-                setOpenAccordion(openAccordion === 'BLT' ? null : 'BLT')
-              }
-            >
-              {implants
-                .filter(impl => impl.implantName === 'BLT' && impl.status === 'used')
-                .map((impl => (
-                  <ImplantCard 
-                    key={impl.id}
-                    implantName={impl.implantName}
-                    diameter={impl.diameter}
-                    length={impl.length}
-                    REF={impl.REF}
-                    LOT={impl.LOT}
-                    date={impl.usedAt}
-                    onDelete={() => handleDelete(impl.id)}
-                  />
-                )))
-              }
-            </AccordionCard>
+            {implantType.map(type => (
+              <AccordionCard 
+                key={type}
+                title={type}
+                type={activeTab}
+                isOpen={openAccordion === type}
+                onToggle={() => 
+                  setOpenAccordion(openAccordion === type ? null : type)
+                }
+              >
+                {implants
+                  .filter(impl => impl.implantName === type && impl.status === activeTab)
+                  .map((impl => (
+                    <ImplantCard 
+                      key={impl.id}
+                      implantName={impl.implantName}
+                      diameter={impl.diameter}
+                      length={impl.length}
+                      REF={impl.REF}
+                      LOT={impl.LOT}
+                      date={activeTab === 'new' ? impl.addedAt : impl.usedAt}
+                      onDelete={() => handleDelete(impl.id)}
+                    />
+                  )))
+                }
+              </AccordionCard>
+            ))}
           </>
         )}
       </main>

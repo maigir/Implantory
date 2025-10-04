@@ -57,7 +57,7 @@
   background: #e9ecef;
 }
 
-.dashboard__tab--active {
+.dashboard__tab-active {
   border-bottom: 3px solid #505860;
   background: #fff;
 }

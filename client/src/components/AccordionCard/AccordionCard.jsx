@@ -1,12 +1,12 @@
-import { SlArrowDown, SlArrowUp} from "react-icons/sl";
-import { LuDiameter } from "react-icons/lu";
+import { SlArrowDown, SlArrowUp} from 'react-icons/sl';
+import { LuDiameter } from 'react-icons/lu';
 import './accordionCard.css';
 
 function AccordionCard({ type, title, children, isOpen, onToggle }) {
   return (
-    <div className="accordionCard">
+    <div className='accordionCard'>
       <div 
-        className="accordionCard__header"
+        className='accordionCard__header'
         onClick={onToggle}
       >
         <h3>{title}</h3>

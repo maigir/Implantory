@@ -1,12 +1,12 @@
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever } from 'react-icons/md';
 import './implantCard.css';
 
 function ImplantCard({ implantName, diameter, length, REF, LOT, date, onDelete }) {
   return (
     <>
-      <tr className="implantCard">
-        <td className="implantCard__actions">
-          <div><MdDeleteForever className="implantCard__icon" onClick={onDelete} /></div>
+      <tr className='implantCard'>
+        <td className='implantCard__actions'>
+          <div><MdDeleteForever className='implantCard__icon' onClick={onDelete} /></div>
           <div>{implantName}</div>    
         </td>
         <td>{diameter}</td>

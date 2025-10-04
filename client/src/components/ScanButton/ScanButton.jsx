@@ -6,17 +6,17 @@ function ScanButton() {
   const navigate = useNavigate();
 
   const goToScanner = () => {
-    navigate("/Scanner");
+    navigate('/Scanner');
   }
 
   return (
     <button
       onClick={goToScanner}
-      className="scan__button"
+      className='scan__button'
     >
       <LuScan 
         size={35}
-        color="#fff"
+        color='#fff'
       />
     </button>
   )

@@ -52,7 +52,7 @@ function Login() {
             }}
         >
         <Box
-            component="form"
+            component='form'
             onSubmit={handleLogin}
             sx={{
                 display: 'flex',
@@ -60,13 +60,13 @@ function Login() {
                 gap: 2,
             }}
         >
-        <Typography variant="h5" component="h1" textAlign="center" color="#333">
+        <Typography variant='h5' component='h1' textAlign='center' color='#333'>
             Login
         </Typography>
 
         <TextField
-            label="Username"
-            variant="outlined"
+            label='Username'
+            variant='outlined'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -74,9 +74,9 @@ function Login() {
         />
 
         <TextField
-            label="Password"
-            type="password"
-            variant="outlined"
+            label='Password'
+            type='password'
+            variant='outlined'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -84,8 +84,8 @@ function Login() {
         />
 
         <Button
-            type="submit"
-            variant="contained"
+            type='submit'
+            variant='contained'
             sx={{
                 mt: 1,
                 py: 1.5,

@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LuDiameter } from "react-icons/lu";
+import { LuDiameter } from 'react-icons/lu';
 import AccordionCard from '../components/AccordionCard/AccordionCard';
 import ScanButton from '../components/ScanButton/ScanButton';
 import ImplantCard from '../components/ImplantCard/ImplantCard';
 import FormModal from '../components/Modal/FormModal';
 import Modal from '../components/Modal/Modal';
 import { getAllImplants, postNewImplant, deleteImplant } from '../services/api.js';
-import "./dashboard.css";
+import './dashboard.css';
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState("new");
@@ -37,7 +37,7 @@ function Dashboard() {
 
       // console.log("New implant saved:", savedImplant);
     } catch (err) {
-        console.error("Failed to add implant:", err);
+        console.error('Failed to add implant:', err);
     }
   }
 
@@ -82,11 +82,11 @@ function Dashboard() {
 
 
   return (
-    <div className="dashboard">
+    <div className='dashboard'>
       {/* ----------------- HEADER ------------------ */}
-      <header className="dashboard__header">
+      <header className='dashboard__header'>
         <button 
-          className="button"
+          className='button'
           onClick={() => setIsModalOpen(true)}
         >
           + Add
@@ -99,23 +99,23 @@ function Dashboard() {
       )}
     
         <input
-          className="dashboard__search-input"
-          type="text"
-          placeholder="Search implants..."
+          className='dashboard__search-input'
+          type='text'
+          placeholder='Search implants...'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <button 
-            className="button"
+            className='button'
             onClick={handleLogout}>
                 Logout
         </button>
       </header>
 
       {/* _________________ TABS ___________________ */}
-      {search.trim() === "" && (
-        <nav className="dashboard__tabs">
+      {search.trim() === '' && (
+        <nav className='dashboard__tabs'>
           {tabTypes.map(tab => (
             <button
               key={tab}
@@ -130,17 +130,17 @@ function Dashboard() {
         </nav>
       )}
 
-      <main className="dashboard__content">
+      <main className='dashboard__content'>
         {search.trim() ? (
           <>
           {/* ----------------- SEARCH CONTAINER ----------------  */}
             {searchResult.length > 0 ? (
-              <div className="dashboard__search-results">
-                <table className="dashboard__table">
+              <div className='dashboard__search-results'>
+                <table className='dashboard__table'>
                   <thead>
-                    <tr className="dashboard__table-row">
+                    <tr className='dashboard__table-row'>
                       {tableHeaders.map(header => (
-                        <th key={header} className="dashboard__table-header">
+                        <th key={header} className='dashboard__table-header'>
                           {header === 'Diameter' ? <LuDiameter /> : header}
                         </th>
                       ))}
@@ -148,7 +148,7 @@ function Dashboard() {
                   </thead>
                   <tbody>
                     {searchResult.map(impl => (
-                      <tr key={impl.id} className="dashboard__table-row">
+                      <tr key={impl.id} className='dashboard__table-row'>
                         {[
                           impl.implantName,
                           impl.diameter,
@@ -158,7 +158,7 @@ function Dashboard() {
                           impl.status === 'new' ? impl.addedAt : impl.usedAt,
                           impl.status,
                         ].map((value, key) => (
-                          <td key={key} className="dashboard__table-cell">
+                          <td key={key} className='dashboard__table-cell'>
                             {value}
                           </td>
                         ))

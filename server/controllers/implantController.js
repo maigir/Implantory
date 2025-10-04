@@ -60,7 +60,7 @@ const updateImplant = async (req, res) => {
 
         res.status(200).json({
             status: 'Success!',
-            message: "Implant successfully updated!",
+            message: 'Implant successfully updated!',
             data: implantItem
         })
     } catch(err){

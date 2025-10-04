@@ -1,6 +1,6 @@
-import { DataTypes } from "sequelize"; 
+import { DataTypes } from 'sequelize'; 
 import dayjs from 'dayjs';
-import sequelize from "../config/db.js";
+import sequelize from '../config/db.js';
 
 const ImplantItem = sequelize.define('ImplantItem', {
     implantName: {
@@ -38,8 +38,8 @@ const ImplantItem = sequelize.define('ImplantItem', {
         defaultValue: DataTypes.NOW,
         
         get() { 
-            const date = this.getDataValue("addedAt");
-            return date ? dayjs(date).format("DD.MM.YY") : null;
+            const date = this.getDataValue('addedAt');
+            return date ? dayjs(date).format('DD.MM.YY') : null;
         }
     },
     usedAt: {
@@ -48,8 +48,8 @@ const ImplantItem = sequelize.define('ImplantItem', {
         defaultValue: null,
 
         get() { 
-            const date = this.getDataValue("usedAt");
-            return date ? dayjs(date).format("DD.MM.YY") : null;
+            const date = this.getDataValue('usedAt');
+            return date ? dayjs(date).format('DD.MM.YY') : null;
         }
     },
 },

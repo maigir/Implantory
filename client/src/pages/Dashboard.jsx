@@ -18,8 +18,8 @@ function Dashboard() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const navigate = useNavigate();
 
-  const tabType = ['new', 'used'];
-  const implantType = ['BLX', 'BLC', 'BLT'];
+  const tabTypes = ['new', 'used'];
+  const implantTypes = ['BLX', 'BLC', 'BLT'];
   const tableHeaders = ['Name', 'Diameter', 'Length', 'REF', 'LOT', 'Date', 'Status'];
 
   // TODO: proper login-system (tokens, jwt)
@@ -35,7 +35,7 @@ function Dashboard() {
       setImplants(prev => [...prev, savedImplant]);
       setIsModalOpen(false);
 
-      console.log("New implant saved:", savedImplant);
+      // console.log("New implant saved:", savedImplant);
     } catch (err) {
         console.error("Failed to add implant:", err);
     }
@@ -43,8 +43,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-    const delImplant = await deleteImplant(id); 
-    console.log(delImplant); 
+    await deleteImplant(id); 
     fetchImplants();
     } catch(err) {
       console.error('Failed to delete:', err);
@@ -65,7 +64,6 @@ function Dashboard() {
   }, [])
 
 
-  // searching by multiple keywords
   useEffect(() => {
     if(!search.trim()) {
       setSearchResult([]);
@@ -74,7 +72,6 @@ function Dashboard() {
     const multipleTerms = search.toLowerCase().split(" ");
     const filtered = implants.filter(implant => {  
       const implantText = Object.values(implant)
-        .filter(val => val !== null)
         .join(" ")
         .toLowerCase();
       return multipleTerms.every(multiple => implantText.includes(multiple));
@@ -83,7 +80,6 @@ function Dashboard() {
     setSearchResult(filtered)
   }, [search, implants])
 
-  /*  ------------------------------------------------- */ 
 
   return (
     <div className="dashboard">
@@ -120,7 +116,7 @@ function Dashboard() {
       {/* _________________ TABS ___________________ */}
       {search.trim() === "" && (
         <nav className="dashboard__tabs">
-          {tabType.map(tab => (
+          {tabTypes.map(tab => (
             <button
               key={tab}
               className={`dashboard__tab ${
@@ -178,7 +174,7 @@ function Dashboard() {
           </>
         ) : activeTab === 'new' ? (
           <>
-            {implantType.map(type => (
+            {implantTypes.map(type => (
               <AccordionCard 
                 key={type}
                 title={type}
@@ -208,7 +204,7 @@ function Dashboard() {
           </>
         ) : (
           <>
-            {implantType.map(type => (
+            {implantTypes.map(type => (
               <AccordionCard 
                 key={type}
                 title={type}

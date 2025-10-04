@@ -1,27 +1,19 @@
-.implantCard,
-.implantCard td {
-  background-color: #f9f9f9;
-}
 
 .implantCard {
   width: 100%;
-  margin-bottom: 0.5rem;
   height: 60px;
-  width: 60px;
-  cursor: pointer;
   border-radius: 8px;
+  background-color: #e8eaec;
 }
 
 .implantCard td {
   text-align: center;
-  border: none;
   letter-spacing: 0.2px;
   font-size: 0.9rem;
-  padding: 0.5rem;
+  padding: 0.6rem;
 }
 
 .implantCard__actions {
-  text-align: center;
   display: flex;
   justify-content: space-between;
   margin-top: 0.7rem;
@@ -32,22 +24,17 @@
 
 .implantCard__icon {
   display: flex;
+  align-items: center;
   cursor: pointer;
-  font-size: 1.3rem;
-  transition: transform 0.2s;
-  gap: 2rem;
+  font-size: 1.2rem;
 }
 
 .implantCard__icon:hover {
-  color: red;
+  color: rgb(204, 74, 74);
 }
 
 
 @media (max-width: 480px) {
-  .implantCard {
-    height: 40px;
-  }
-    
   .implantCard td {
     font-size: 10px;
   }

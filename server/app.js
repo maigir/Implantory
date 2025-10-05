@@ -10,7 +10,9 @@ dotenv.config({quiet: true});
 const app = express();
 app.use(express.json());
 
-app.use(cors({ origin: 'http://localhost:5173'})); 
+app.use(cors({ origin: [/*'http://localhost:5173'*/
+    'https://implantory.vercel.app'
+]})); 
 
 app.use(morgan('dev'));
 
@@ -41,7 +43,7 @@ app.get('/', (req, res) => {
     res.status(200).send('API is running');
 })
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

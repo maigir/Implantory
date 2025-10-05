@@ -15,7 +15,8 @@ html, body {
   background-color: #dc3545;
   border: none;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
   border-radius: 6px;
   cursor: pointer;
 

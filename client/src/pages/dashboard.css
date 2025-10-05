@@ -21,10 +21,10 @@
 
 /* Search bar */
 .dashboard__search-input {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 50px;
-  width: 220px;
+  width: 300px;
   max-width: 100%;
 
   transition: border 0.2s ease;
@@ -118,5 +118,18 @@
 @media (max-width: 480px) {
   .add-button-mobile {
     display: hide;
+  }
+}
+
+@media (max-width: 508px) {
+  .dashboard__search-input {
+    padding: 0.5rem 0.75rem;
+    width: 220px;
+  }
+}
+
+@media (max-width: 418px) {
+  .dashboard__search-input {
+    width: 180px;
   }
 }

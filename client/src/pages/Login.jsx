@@ -24,7 +24,7 @@ function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        if(username === DUMMY_USER.username && password === DUMMY_USER.password) {
+        if(username.toLowerCase() === DUMMY_USER.username && password === DUMMY_USER.password) {
             localStorage.setItem('isLoggedIn', 'true');
             navigate('/dashboard');
         } else {

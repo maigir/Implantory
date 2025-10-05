@@ -89,10 +89,10 @@ function Login() {
             sx={{
                 mt: 1,
                 py: 1.5,
-                background: '#90caf9',
-                color: '#333',
+                background: '#dc3545',
+                color: '#fff',
                 '&:hover': {
-                    background: '#64b5f6',
+                    background: '#c82333',
                 },
             }}
             fullWidth

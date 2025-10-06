@@ -5,6 +5,8 @@ A full-stack storage application for managing dental office implant supplies wit
 <br><br>
 [How does Implantory work?](#how-does-Implantory-work)
 [Next steps](#next-steps)
+[Future developments (priority)](#future-developments-priority)
+[Secondary features](#secondary-features)
 <br><br>
 
 ## How does Implantory work? 
@@ -24,18 +26,32 @@ Scanning the same QR code twice, the application will recognize the data and LOT
 </p>
 
 <br><br>
-Implantory will allow users to o search for products using multiple keywords at once. Example of a draft version:
+Implantory will allow users to search for products using multiple keywords at once. Example of a draft version:
 <br><br>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c8d133a7-c292-4150-9acb-e9b4132cd0f6" width="500"/>
 </p>
 
-## Next step
+## Next steps
 
 The next step is to implement the core functionality: **QR code scanning with automatic database logging**.  
 In parallel, the **multiple-term search** is being enhanced to fix bugs and improve search accuracy.
 
-## Roadmap
+## Future developments (priority)
+
+[ ] QR scanning with automatic database logging.
+[ ] Multiple-term search enhancement and bug fixes.
+[ ] Enhancing the UI for a modern, professional look and smoother interactions.
+[ ] Implementing secure user authentication.
+[ ] Adding user roles to enable role-based access, where each doctor is paired with a specific assistant.
+[ ] Progressive Web App (PWA) support (mobile installation).
+
+## Secondary features
+
+[ ] Low-stock push notifications to alert users when inventory is running low
+[ ] Inventory analytics dashboard
+[ ] Track implants by tooth number to monitor usage patterns in different regions of the mouth.
+
 
 
 

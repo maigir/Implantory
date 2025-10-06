@@ -5,7 +5,7 @@ A full-stack storage application for managing dental office implant supplies wit
 
 ## Current Tech Stack 
 
-- **Frontend**: React + css (converting to SCSS)
+- **Frontend**: React + css (upgrading to SCSS)
 - **Backend**: Node.js + Express
 - **Database**: MySQL (using Sequelize ORM)
 

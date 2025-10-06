@@ -6,9 +6,9 @@ A full-stack storage application for managing dental office implant supplies wit
 
 🔗 [View Project](https://implantory.vercel.app)
 
-Demo login: 
-Username: admin
-Password: 7734
+Demo login:  
+Username: admin  
+Password: 7734  
 
 <br>
 

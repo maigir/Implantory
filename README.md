@@ -24,7 +24,7 @@ Scanning the same QR code twice, the application will recognize the data and LOT
 Implantory will allow users to o search for products using multiple keywords at once. Example of a draft version:
 <br><br>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c8d133a7-c292-4150-9acb-e9b4132cd0f6" width="400"/>
+  <img src="https://github.com/user-attachments/assets/c8d133a7-c292-4150-9acb-e9b4132cd0f6" width="500"/>
 </p>
 
 

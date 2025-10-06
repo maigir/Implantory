@@ -3,10 +3,10 @@
 A full-stack storage application for managing dental office implant supplies with inventory tracking, scanning, and role-based access. Implantory will be a PWA (Progressive Web App), allowing offline use and installation on mobile devices. It will allow dentists and dental assistants to scan QR code from implant boxes with a phone camera, extract product details, and store them in a database. The application will provide CRUD functionality, authentication, email verification, and low-stock notifications. It is being developed for clinics that use Straumann implants (BLX, BLC, BLT). 
 
 <br><br>
-[How does Implantory work?](#how-does-Implantory-work)
-[Next steps](#next-steps)
-[Future developments (priority)](#future-developments-priority)
-[Secondary features](#secondary-features)
+[How does Implantory work?](#how-does-Implantory-work)<br>
+[Next steps](#next-steps)<br>
+[Future developments (priority)](#future-developments-priority)<br>
+[Secondary features](#secondary-features)<br>
 <br><br>
 
 ## How does Implantory work? 
@@ -39,19 +39,18 @@ In parallel, the **multiple-term search** is being enhanced to fix bugs and impr
 
 ## Future developments (priority)
 
-[ ] QR scanning with automatic database logging.
-[ ] Multiple-term search enhancement and bug fixes.
-[ ] Enhancing the UI for a modern, professional look and smoother interactions.
-[ ] Implementing secure user authentication.
-[ ] Adding user roles to enable role-based access, where each doctor is paired with a specific assistant.
-[ ] Progressive Web App (PWA) support (mobile installation).
+[ ] QR scanning with automatic database logging.<br>
+[ ] Multiple-term search enhancement and bug fixes.<br>
+[ ] Enhancing the UI for a modern, professional look and smoother interactions.<br>
+[ ] Implementing secure user authentication.<br>
+[ ] Adding user roles to enable role-based access, where each doctor is paired with a specific assistant.<br>
+[ ] Progressive Web App (PWA) support (mobile installation).<br>
 
 ## Secondary features
 
-[ ] Low-stock push notifications to alert users when inventory is running low
-[ ] Inventory analytics dashboard
-[ ] Track implants by tooth number to monitor usage patterns in different regions of the mouth.
-
+[ ] Low-stock push notifications to alert users when inventory is running low.<br>
+[ ] Inventory analytics dashboard.<br>
+[ ] Track implants by tooth number to monitor usage patterns in different regions of the mouth.<br>
 
 
 

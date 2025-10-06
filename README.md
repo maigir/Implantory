@@ -2,12 +2,12 @@
 
 A full-stack storage application for managing dental office implant supplies with inventory tracking, scanning, and role-based access. Implantory will be a PWA (Progressive Web App), allowing offline use and installation on mobile devices. It will allow dentists and dental assistants to scan QR code from implant boxes with a phone camera, extract product details, and store them in a database. The application will provide CRUD functionality, authentication, email verification, and low-stock notifications. It is being developed for clinics that use Straumann implants (BLX, BLC, BLT). 
 
-<br><br>
+<br>
 [How does Implantory work?](#how-does-Implantory-work)<br>
 [Next steps](#next-steps)<br>
 [Future developments (priority)](#future-developments-priority)<br>
 [Secondary features](#secondary-features)<br>
-<br><br>
+<br>
 
 ## How does Implantory work? 
 
@@ -16,7 +16,7 @@ A full-stack storage application for managing dental office implant supplies wit
 </p>
 <br>
   An example of an implant box with QR code.
-  When a product is scanned using its QR code, the system will record the name, diameter, length, REF and LOT codes and the date it was added to the database. This helps clinics track when supplies were received. The boxes look the same for BLX and BLT implants. 
+  When a product is scanned using its QR code, the application will save the name, diameter, length, REF and LOT codes and the date it was added to the database. This helps clinics track when supplies were received. The boxes look the same for BLX and BLT implants. 
 <br><br>
 Implantory also keeps track of used implants. In practice, it is often necessary to track down when certain type of implant was used. 
 Scanning the same QR code twice, the application will recognize the data and LOT code and adds all that info from 'New implants' to 'Used implants' with the date when it was used. The photo represents a draft version of this application since it's in development process. 

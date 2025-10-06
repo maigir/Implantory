@@ -4,8 +4,7 @@ A full-stack storage application for managing dental office implant supplies wit
 
 
 
-
-
+[ ](https://github.com/maigir/Implantory/issues/1#issue-3486105597)
 
 
 

@@ -2,11 +2,22 @@
 
 A full-stack storage application for managing dental office implant supplies with inventory tracking, scanning, and role-based access. Implantory will be a PWA (Progressive Web App), allowing offline use and installation on mobile devices. It will allow dentists and dental assistants to scan QR code from implant boxes with a phone camera, extract product details, and store them in a database. The application will provide CRUD functionality, authentication, email verification, and low-stock notifications. It is being developed for clinics that use Straumann implants (BLX, BLC, BLT). 
 
+
+## Technology Stack
+
+- **Frontend**: React + css (converting to SCSS)
+- **Backend**: Node.js + Express
+- **Database**: MySQL + Sequelize
+
 <br>
-[How does Implantory work?](#how-does-Implantory-work)<br>
-[Next steps](#next-steps)<br>
-[Future developments (priority)](#future-developments-priority)<br>
-[Secondary features](#secondary-features)<br>
+[How does Implantory work?](#how-does-Implantory-work)
+
+[Next steps](#next-steps)
+
+[Future developments (priority)](#future-developments-priority)
+
+[Secondary features](#secondary-features)
+
 <br>
 
 ## How does Implantory work? 

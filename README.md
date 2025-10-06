@@ -12,10 +12,10 @@ A full-stack storage application for managing dental office implant supplies wit
 <br>
   An example of an implant box with QR code at the bottom right. 
   When a product is scanned using its QR code, the system will record the name, diameter, length, REF and LOT codes and the date it was added to the database. This helps clinics track when supplies arrived. The boxes look the same for BLX and BLT implants. 
-<br>
+<br><br>
 Implantory also keeps track of used implants. In practice, it is often necessary to track down when certain type of implant was used. 
 Scanning the same QR code twice, the application will recognize the data and LOT code and adds all that info from 'New implants' to 'Used implants'. The photo represents a draft version of this application since it's in development process. 
-<p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/b30eca9d-e6a0-4bcb-8ec7-ae2e6d6fd59e" width="400" />
 </p>
 

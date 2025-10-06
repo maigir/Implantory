@@ -16,7 +16,7 @@ A full-stack storage application for managing dental office implant supplies wit
 Implantory also keeps track of used implants. In practice, it is often necessary to track down when certain type of implant was used. 
 Scanning the same QR code twice, the application will recognize the data and LOT code and adds all that info from 'New implants' to 'Used implants'. The photo represents a draft version of this application since it's in development process. 
 <p>
-  <img src="https://github.com/user-attachments/assets/b30eca9d-e6a0-4bcb-8ec7-ae2e6d6fd59e" />
+  <img src="https://github.com/user-attachments/assets/b30eca9d-e6a0-4bcb-8ec7-ae2e6d6fd59e" width="400" />
 </p>
 
 
